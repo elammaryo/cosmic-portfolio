@@ -36,11 +36,11 @@ export const StarBackground = () => {
   }, []);
 
   const generateStars = () => {
-    const numberOfStars = Math.floor(
+    const numberOfStars: number = Math.floor(
       (window.innerWidth * window.innerHeight) / 10000
     );
 
-    const newStars = [];
+    const newStars: Star[] = [];
 
     for (let i = 0; i < numberOfStars; i++) {
       newStars.push({
@@ -57,7 +57,7 @@ export const StarBackground = () => {
   };
 
   const generateMeteors = () => {
-    const numberOfMeteors = 4;
+    const numberOfMeteors: number = 4;
     const newMeteors: Meteor[] = [];
 
     for (let i = 0; i < numberOfMeteors; i++) {
@@ -76,7 +76,7 @@ export const StarBackground = () => {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      {stars.map((star) => (
+      {stars.map((star: Star) => (
         <div
           key={star.id}
           className="star animate-pulse-subtle"
