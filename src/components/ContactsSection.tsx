@@ -1,17 +1,10 @@
-import {
-  Github,
-  Instagram,
-  Linkedin,
-  Mail,
-  Map,
-  Phone,
-  Send,
-} from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, Map, Phone } from "lucide-react";
 import { cn } from "../lib/utils";
-import { toast, useToast } from "../hooks/use-toast";
+import { useToast } from "../hooks/use-toast";
 import { useState } from "react";
 
 export const ContactsSection = () => {
+  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: any) => {
@@ -157,13 +150,13 @@ export const ContactsSection = () => {
 
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={true}
                 className={cn(
                   "cosmic-button w-full flex items-center justify-center gap-2"
                 )}
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
-                <Send size={16} />
+                {isSubmitting ? "Sending..." : "Construction zone *_*"}
+                {/* <Send size={16} /> */}
               </button>
             </form>
           </div>
