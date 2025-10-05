@@ -62,6 +62,16 @@
   }
 }
 
+@keyframes meteor-shine {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.4);
+  }
+}
+
 @layer base {
   :root {
     --background: 210 40% 98%;
@@ -73,6 +83,12 @@
     --primary-foreground: 210 40% 98%;
 
     --border: 214 32% 91%;
+
+    --meteor-from: 48 96% 53%;
+    --meteor-via: 48 96% 76%;
+    --meteor-shadow: 250 204 21;
+
+    box-shadow: 0 0 12px 6px rgb(var(--meteor-shadow) / 0.35);
   }
 
   .dark {
@@ -85,20 +101,24 @@
     --primary-foreground: 213 31% 91%;
 
     --border: 217 33% 20%;
-  }
 
-  * {
-    @apply border-border;
+    --meteor-from: 48 100% 60%;
+    --meteor-via: 48 100% 40%;
+    --meteor-shadow: 245 180 10;
   }
+}
 
-  html {
-    @apply scroll-smooth;
-  }
+* {
+  @apply border-border;
+}
 
-  body {
-    @apply bg-background text-foreground transition-colors duration-300;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-background text-foreground transition-colors duration-300;
+  font-feature-settings: "rlig" 1, "calt" 1;
 }
 
 @utility container {
@@ -139,7 +159,7 @@
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium
          transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
          hover:scale-105 active:scale-95;
 }
@@ -150,8 +170,14 @@
 }
 
 @utility meteor {
-  @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+  @apply absolute rounded-full bg-linear-to-r;
+  background-image: linear-gradient(
+    to right,
+    hsl(var(--meteor-from)) 0%,
+    hsl(var(--meteor-via)) 70%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px 5px rgb(var(--meteor-shadow) / 0.28);
   opacity: 0;
 }
 
@@ -160,4 +186,31 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
+}
+
+.logo {
+  height: 95px;
+  width: 100px;
+  padding: 15px;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility logo-spinner {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: logo-spin infinite 20s linear;
+  }
 }
