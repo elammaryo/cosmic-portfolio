@@ -27,7 +27,7 @@ const skills = [
   { name: "TypeScript", category: ["frontend"], img: tsLogo },
   { name: "HTML", category: ["frontend"], img: htmlLogo },
   { name: "CSS", category: ["frontend"], img: cssLogo },
-  { name: "Tailwind CSS", category: ["backend"], img: tailwindCssLogo },
+  { name: "Tailwind CSS", category: ["frontend"], img: tailwindCssLogo },
 
   // backend
   { name: "NodeJS", category: ["backend", "featured"], img: nodeJsLogo },
@@ -42,7 +42,11 @@ const skills = [
   { name: "GitHub", category: ["tools"], img: githubLogo },
 
   // DevOps
-  { name: "CI/CD (GitHub Actions)", category: ["devops"], img: actionsLogo },
+  {
+    name: "CI/CD (GitHub Actions)",
+    category: ["devops", "tools"],
+    img: actionsLogo,
+  },
   { name: "Docker", category: ["devops", "tools"], img: dockerLogo },
 ];
 
