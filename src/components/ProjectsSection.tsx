@@ -3,12 +3,20 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "AI Chatbot",
-    description: "An AI chatbot site created using React and NodeJS",
-    img: "/projects",
-    tags: ["React", "NodeJS", "API Development", "AI", "Hosting"],
-    demoUrl: "https://ai-brobot.netlify.app",
-    githubUrl: "https://github.com/elammaryo",
+    title: "SuperOver App",
+    description:
+      "A cross platform pickup sports app. Check out our page and join the waitlist to stay updated on events and our upcoming release!",
+    img: "/projects/superover.png",
+    tags: [
+      "Flutter",
+      "Firebase",
+      "NodeJS",
+      "API Dev",
+      "CI/CD",
+      "and more...  ",
+    ],
+    demoUrl: "https://superoverapp.com",
+    githubUrl: "github.com/elammaryo",
   },
   {
     id: 2,
@@ -22,13 +30,12 @@ const projects = [
   },
   {
     id: 3,
-    title: "Weather App",
-    description:
-      "A weather application returning weather data of cities worldwide",
+    title: "AI Chatbot",
+    description: "An AI chatbot site created using React and NodeJS",
     img: "/projects",
-    tags: ["HTML", "CSS", "JS", "API Integration"],
-    demoUrl: "",
-    githubUrl: "github.com/elammaryo",
+    tags: ["React", "NodeJS", "API Dev", "AI", "Hosting"],
+    demoUrl: "https://ai-brobot.netlify.app",
+    githubUrl: "https://github.com/elammaryo",
   },
 ];
 
