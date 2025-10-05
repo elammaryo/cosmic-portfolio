@@ -1,56 +1,58 @@
+import reactLogo from "../assets/react.svg";
+import flutterLogo from "../assets/flutter.svg";
+import nodeJsLogo from "../assets/nodejs.svg";
+import htmlLogo from "../assets/html.svg";
+import cssLogo from "../assets/css.svg";
+import tailwindCssLogo from "../assets/tailwind-css.svg";
+import goLogo from "../assets/golang.svg";
+import supabase from "../assets/supabase.svg";
+import ibmCLoudLogo from "../assets/ibm_cloud.svg";
+import githubLogo from "../assets/github.svg";
+import firebaseLogo from "../assets/firebase.svg";
+import dockerLogo from "../assets/docker.svg";
+import jsLogo from "../assets/javascript.svg";
+import tsLogo from "../assets/typescript.svg";
 import { useState } from "react";
 import { cn } from "../lib/utils";
+import { Code } from "lucide-react";
 
 const skills = [
   // frontend
-  {
-    name: "Flutter",
-    level: 95,
-    category: "frontend",
-  },
-  {
-    name: "React",
-    level: 95,
-    category: "frontend",
-  },
-  {
-    name: "HTML/CSS",
-    level: 95,
-    category: "frontend",
-  },
+  { name: "Flutter", category: ["frontend", "featured"], img: flutterLogo },
+  { name: "React", category: ["frontend", "featured"], img: reactLogo },
+  { name: "JavaScript", category: ["frontend"], img: jsLogo },
+  { name: "TypeScript", category: ["frontend"], img: tsLogo },
+  { name: "HTML", category: ["frontend"], img: htmlLogo },
+  { name: "CSS", category: ["frontend"], img: cssLogo },
+  { name: "Tailwind CSS", category: ["backend"], img: tailwindCssLogo },
 
   // backend
-  {
-    name: "NodeJS",
-    level: 95,
-    category: "backend",
-  },
-  {
-    name: "Go",
-    level: 95,
-    category: "backend",
-  },
+  { name: "NodeJS", category: ["backend", "featured"], img: nodeJsLogo },
+  { name: "Go", category: ["backend"], img: goLogo },
+  { name: "SQL", category: ["backend"] },
+  { name: "Supabase", category: ["backend", "tools"], img: supabase },
 
   // tools
-  {
-    name: "GitHub",
-    level: 95,
-    category: "tools",
-  },
-  {
-    name: "Supabase",
-    level: 95,
-    category: "tools",
-  },
+
+  { name: "Firebase", category: ["featured", "tools"], img: firebaseLogo },
+  { name: "IBM Cloud", category: ["tools"], img: ibmCLoudLogo },
+  { name: "GitHub", category: ["tools"], img: githubLogo },
+
+  // DevOps
+  { name: "CI/CD (GitHub Actions)", category: ["devops"] },
+  { name: "Docker", category: ["devops", "tools"], img: dockerLogo },
 ];
 
-const categories = ["all", "frontend", "backend", "tools"];
+const categories = ["all", "featured", "frontend", "backend", "tools"];
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("featured");
   const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
+    (skill) =>
+      activeCategory === "all" || skill.category.includes(activeCategory)
   );
+
+  const skillsLength = filteredSkills.length;
 
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
@@ -78,21 +80,34 @@ export const SkillsSection = () => {
           })}
         </div>
 
-        <div className="grid grid-cols1 sm:grid-cols2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => {
+        <div className="grid grid-cols1 md:grid-cols2 lg:grid-cols-3 gap-6">
+          {filteredSkills.map((skill, index) => {
+            const isLast: boolean = index === skillsLength - 1;
+
             return (
               <div
-                key={key}
-                className="bg-card p-6 rounded-lg shadow-xs card-hover"
+                key={index}
+                className={cn(
+                  "bg-card p-6 rounded-lg shadow-xs card-hover flex items-center",
+                  isLast && skillsLength % 3 === 1 && "lg:col-start-2"
+                )}
               >
-                <div className="text-left mb-4">
-                  <h3 className="font-semibold text-lg">{skill.name}</h3>
-                </div>
-                <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                  <div
-                    className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease_out]"
-                    style={{ width: skill.level + "%" }}
+                {skill.img !== undefined ? (
+                  <img
+                    src={skill.img}
+                    className={cn(
+                      "logo mr-5",
+                      skill.name == "React" && "logo-spinner"
+                    )}
                   />
+                ) : (
+                  <div className="h-20 w-20 mr-8 ml-2 rounded-full bg-primary/10 flex justify-center items-center">
+                    <Code className="text-primary" size={35} />
+                  </div>
+                )}
+
+                <div className="text-left mt-4">
+                  <h3 className="font-semibold text-lg">{skill.name}</h3>
                 </div>
               </div>
             );
