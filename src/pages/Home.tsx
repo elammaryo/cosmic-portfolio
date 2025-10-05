@@ -1,5 +1,6 @@
 import { AboutSection } from "../components/AboutSection";
 import { ContactsSection } from "../components/ContactsSection";
+import { FooterSection } from "../components/FooterSection";
 import { HeroSection } from "../components/HeroSection";
 import { NavBar } from "../components/NavBar";
 import { ProjectsSection } from "../components/ProjectsSection";
@@ -25,6 +26,7 @@ export const Home = () => {
         <ContactsSection />
       </main>
       {/* Footer */}
+      <FooterSection />
     </div>
   );
 };
