@@ -19,9 +19,9 @@ export const HeroSection = () => {
             </span>
           </h1>
           <p>
-            I create stellar web experiences with modern technologies.
-            Specializing in front-end development, I build interfaces that are
-            both beautiful and functional.
+            I turn caffeine and curiosity into functional code. Currently
+            orbiting between fullstack and cloud engineering, building things
+            that just work beautifully.
           </p>
           <div>
             <a href="#projects" className="cosmic-button">
