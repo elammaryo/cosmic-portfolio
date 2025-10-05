@@ -93,10 +93,10 @@ export const ContactsSection = () => {
                 <a href="https://linkedin.com/in/omerelammary" target="_blank">
                   <Linkedin />
                 </a>
-                <a href="https://linkedin.com/in/omerelammary" target="_blank">
+                <a href="https://github.com/elammaryo" target="_blank">
                   <Github />
                 </a>
-                <a href="https://linkedin.com/in/omerelammary" target="_blank">
+                <a href="https://www.instagram.com/omer.el__" target="_blank">
                   <Instagram />
                 </a>
               </div>
