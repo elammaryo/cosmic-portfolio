@@ -12,6 +12,9 @@ import firebaseLogo from "../assets/firebase.svg";
 import dockerLogo from "../assets/docker.svg";
 import jsLogo from "../assets/javascript.svg";
 import tsLogo from "../assets/typescript.svg";
+import sqlLogo from "../assets/sql.svg";
+import actionsLogo from "../assets/github-actions.svg";
+import javaLogo from "../assets/java.svg";
 import { useState } from "react";
 import { cn } from "../lib/utils";
 import { Code } from "lucide-react";
@@ -29,9 +32,9 @@ const skills = [
   // backend
   { name: "NodeJS", category: ["backend", "featured"], img: nodeJsLogo },
   { name: "Go", category: ["backend"], img: goLogo },
-  { name: "SQL", category: ["backend"] },
+  { name: "SQL", category: ["backend"], img: sqlLogo },
   { name: "Supabase", category: ["backend", "tools"], img: supabase },
-
+  { name: "Java", category: ["backend"], img: javaLogo },
   // tools
 
   { name: "Firebase", category: ["featured", "tools"], img: firebaseLogo },
@@ -39,7 +42,7 @@ const skills = [
   { name: "GitHub", category: ["tools"], img: githubLogo },
 
   // DevOps
-  { name: "CI/CD (GitHub Actions)", category: ["devops"] },
+  { name: "CI/CD (GitHub Actions)", category: ["devops"], img: actionsLogo },
   { name: "Docker", category: ["devops", "tools"], img: dockerLogo },
 ];
 
