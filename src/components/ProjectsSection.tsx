@@ -16,7 +16,6 @@ const projects = [
       "and more...  ",
     ],
     demoUrl: "https://superoverapp.com",
-    githubUrl: "github.com/elammaryo",
   },
   {
     id: 2,
@@ -24,16 +23,17 @@ const projects = [
     description:
       "A customer facing food ordering application for fastfood restaurant kiosks",
     img: "/projects/kiosk-app.png",
-    tags: ["Flutter", "Figma"],
+    tags: ["Flutter", "Figma", "JSON", "State"],
     demoUrl: "",
-    githubUrl: "https://github.com/elammaryo",
+    githubUrl: "https://github.com/elammaryo/gyo-self-order",
   },
   {
     id: 3,
     title: "AI Chatbot",
-    description: "An AI chatbot site created using React and NodeJS",
-    img: "/projects",
-    tags: ["React", "NodeJS", "API Dev", "AI", "Hosting"],
+    description:
+      "An AI chatbot created using React and NodeJS. Integrated with an LLM that retains context during your session.",
+    img: "/projects/chatbot.png",
+    tags: ["React", "NodeJS", "AI", "API Dev"],
     demoUrl: "https://ai-brobot.netlify.app",
     githubUrl: "https://github.com/elammaryo",
   },
@@ -57,7 +57,7 @@ export const ProjectsSection = () => {
             return (
               <div
                 key={key}
-                className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+                className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col"
               >
                 <div className="h-48 overflow-hidden">
                   <img
@@ -67,7 +67,7 @@ export const ProjectsSection = () => {
                   />
                 </div>
 
-                <div className="p-6">
+                <div className="px-6 pt-6">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => {
                       return (
@@ -83,8 +83,10 @@ export const ProjectsSection = () => {
                   <p className="text-muted-foreground text-sm mb-4">
                     {project.description}
                   </p>
-                  <div className="flex justify-between items-center">
-                    <div className="flex space-x-3">
+                </div>
+                <div className="mt-auto flex items-center px-6 pb-6">
+                  <div className="flex space-x-3">
+                    {project.demoUrl && (
                       <a
                         href={project.demoUrl}
                         target="_blank"
@@ -92,6 +94,8 @@ export const ProjectsSection = () => {
                       >
                         <ExternalLink size={20} />
                       </a>
+                    )}
+                    {project.githubUrl && (
                       <a
                         href={project.githubUrl}
                         target="_blank"
@@ -99,7 +103,7 @@ export const ProjectsSection = () => {
                       >
                         <Github size={20} />
                       </a>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>
