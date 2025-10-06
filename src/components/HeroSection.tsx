@@ -19,9 +19,9 @@ export const HeroSection = () => {
             </span>
           </h1>
           <p>
-            I turn caffeine and curiosity into functional code. Currently
-            orbiting between fullstack and cloud engineering, building things
-            that just work beautifully.
+            I turn caffeine and code into beautiful applications. Currently
+            orbiting between fullstack and cloud engineering, where I build
+            stellar experiences and systems.
           </p>
           <div>
             <a href="#projects" className="cosmic-button">
