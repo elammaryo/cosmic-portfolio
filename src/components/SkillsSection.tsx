@@ -18,6 +18,7 @@ import javaLogo from "../assets/icons/java.svg";
 import { useState } from "react";
 import { cn } from "../lib/utils";
 import { Code } from "lucide-react";
+import { useTheme } from "../ThemeContext";
 
 const skills = [
   // frontend
@@ -53,6 +54,7 @@ const skills = [
 const categories = ["all", "featured", "frontend", "backend", "tools"];
 
 export const SkillsSection = () => {
+  const { isDark } = useTheme();
   const [activeCategory, setActiveCategory] = useState("featured");
   const filteredSkills = skills.filter(
     (skill) =>
@@ -90,6 +92,7 @@ export const SkillsSection = () => {
         <div className="grid grid-cols1 md:grid-cols2 lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill, index) => {
             const isLast: boolean = index === skillsLength - 1;
+            const useAltImg: boolean = isDark && skill.altImg != undefined;
 
             return (
               <div
@@ -101,7 +104,7 @@ export const SkillsSection = () => {
               >
                 {skill.img !== undefined ? (
                   <img
-                    src={skill.img}
+                    src={useAltImg ? skill.altImg : skill.img}
                     className={cn(
                       "logo mr-5",
                       skill.name == "React" && "logo-spinner"
