@@ -4,7 +4,7 @@
 
 ![Netlify Status](https://api.netlify.com/api/v1/badges/dde47d6f-6ea5-416c-8e93-1173d8ab6a4a/deploy-status)
 
-🚀 **Explore the site:** **https://omerelammary.netlify.app**
+🚀 **Explore the site:** **<a href="https://omerelammary.netlify.app" target="_blank"> Cosmic Portfolio </a>**
 
 ---
 
