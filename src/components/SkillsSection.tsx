@@ -8,6 +8,7 @@ import goLogo from "../assets/icons/golang.svg";
 import supabase from "../assets/icons/supabase.svg";
 import ibmCLoudLogo from "../assets/icons/ibm_cloud.svg";
 import githubLogo from "../assets/icons/github.svg";
+import githubWhiteLogo from "../assets/icons/github-white.svg";
 import firebaseLogo from "../assets/icons/firebase.svg";
 import dockerLogo from "../assets/icons/docker.svg";
 import jsLogo from "../assets/icons/javascript.svg";
@@ -15,6 +16,11 @@ import tsLogo from "../assets/icons/typescript.svg";
 import sqlLogo from "../assets/icons/sql.svg";
 import actionsLogo from "../assets/icons/github-actions.svg";
 import javaLogo from "../assets/icons/java.svg";
+import vsCodeLogo from "../assets/icons/vscode.svg";
+import figmaLogo from "../assets/icons/figma.svg";
+import postmanLogo from "../assets/icons/postman.svg";
+import cursorLogo from "../assets/icons/cursor.svg";
+import cursorWhiteLogo from "../assets/icons/cursor-white.png";
 import { useState } from "react";
 import { cn } from "../lib/utils";
 import { Code } from "lucide-react";
@@ -33,25 +39,59 @@ const skills = [
   // backend
   { name: "NodeJS", category: ["backend", "featured"], img: nodeJsLogo },
   { name: "Go", category: ["backend"], img: goLogo },
+  { name: "Supabase", category: ["backend", "Cloud / DevOps"], img: supabase },
   { name: "SQL", category: ["backend"], img: sqlLogo },
-  { name: "Supabase", category: ["backend", "tools"], img: supabase },
   { name: "Java", category: ["backend"], img: javaLogo },
-  // tools
 
-  { name: "Firebase", category: ["featured", "tools"], img: firebaseLogo },
-  { name: "IBM Cloud", category: ["tools"], img: ibmCLoudLogo },
-  { name: "GitHub", category: ["tools"], img: githubLogo },
+  // Cloud / DevOps
+  {
+    name: "Firebase",
+    category: ["featured", "Cloud / DevOps"],
+    img: firebaseLogo,
+  },
+  {
+    name: "IBM Cloud",
+    category: ["Cloud / DevOps"],
+    img: ibmCLoudLogo,
+  },
 
-  // DevOps
   {
     name: "CI/CD (GitHub Actions)",
-    category: ["devops", "tools"],
+    category: ["Cloud / DevOps"],
     img: actionsLogo,
   },
-  { name: "Docker", category: ["devops", "tools"], img: dockerLogo },
+  {
+    name: "Docker",
+    category: ["tools", "Cloud / DevOps"],
+    img: dockerLogo,
+  },
+
+  // tools
+  {
+    name: "GitHub",
+    category: ["tools"],
+    img: githubLogo,
+    altImg: githubWhiteLogo,
+  },
+  { name: "VS Code", category: ["tools"], img: vsCodeLogo },
+  {
+    name: "Cursor",
+    category: ["tools"],
+    img: cursorLogo,
+    altImg: cursorWhiteLogo,
+  },
+  { name: "Figma", category: ["tools"], img: figmaLogo },
+  { name: "Postman", category: ["tools"], img: postmanLogo },
 ];
 
-const categories = ["all", "featured", "frontend", "backend", "tools"];
+const categories = [
+  "all",
+  "featured",
+  "frontend",
+  "backend",
+  "Cloud / DevOps",
+  "tools",
+];
 
 export const SkillsSection = () => {
   const { isDark } = useTheme();
