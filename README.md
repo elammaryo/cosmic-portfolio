@@ -1,8 +1,11 @@
 # 🌌 Cosmic Portfolio
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR-SITE-ID/deploy-status)](https://app.netlify.com/sites/your-site-name/deploys)
+
+
 **Cosmic Portfolio** is my space-themed developer portfolio showcasing my work, skills, and projects. It’s fast, responsive, and a little celestial—built to highlight my journey as a **Software Engineer** across full stack and emerging cloud engineering.
 
-🚀 ** Explore the site:** **https://omerelammary.netlify.app**
+🚀 **Explore the site:** **https://omerelammary.netlify.app**
 
 ---
 
