@@ -1,73 +1,27 @@
-# React + TypeScript + Vite
+# 🌌 Cosmic Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Cosmic Portfolio** is my space-themed developer portfolio showcasing my work, skills, and projects. It’s fast, responsive, and a little celestial—built to highlight my journey as a **Software Engineer** across full stack and emerging cloud engineering.
 
-Currently, two official plugins are available:
+🚀 ** Explore the site:** **https://omerelammary.netlify.app**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
+- **Hero Section:** Animated cosmic background with light/dark mode
+- **About Me:** Snapshot of full stack + cloud direction
+- **Skills:** Filterable tabs (Frontend, Backend, Tools, Cloud)
+- **Projects:** Responsive gallery with tech stacks and links
+- **Contact:** Simple “get in touch” section
+- **Responsive:** Looks great on desktop, tablet, and mobile
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 Tech Stack
+**Frontend:** React, Vite, Tailwind CSS, TypeScript
+**Deployment:** Netlify
+**Other:** EmailJS (contact form)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+## 🪐 Purpose
+This site reflects how I design, build, and ship real products. The goal: a smooth, modern interface that’s fun to explore and easy to scan for recruiters and collaborators.
