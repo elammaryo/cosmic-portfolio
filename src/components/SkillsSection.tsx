@@ -62,7 +62,7 @@ const skills = [
   },
   {
     name: "Docker",
-    category: ["tools", "Cloud / DevOps"],
+    category: ["Cloud / DevOps"],
     img: dockerLogo,
   },
 
