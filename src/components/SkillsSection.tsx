@@ -156,7 +156,7 @@ export const SkillsSection = () => {
                   </div>
                 )}
 
-                <div className="text-left mt-4">
+                <div className="text-left">
                   <h3 className="font-semibold text-lg">{skill.name}</h3>
                 </div>
               </div>
