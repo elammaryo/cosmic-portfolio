@@ -17,8 +17,8 @@
 ---
 
 ## 🧠 Tech Stack
-**Frontend:** React, Vite, Tailwind CSS, TypeScript
-**Deployment:** Netlify
+**Frontend:** React, Vite, Tailwind CSS, TypeScript <br>
+**Deployment:** Netlify <br>
 **Other:** EmailJS (contact form)
 
 ---
