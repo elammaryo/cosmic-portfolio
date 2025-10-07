@@ -9,23 +9,21 @@ export const AboutSection = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3>Full Stack Developer & Tech Creator</h3>
+            <h3>Software Engineer & Tech Creator</h3>
 
             <p className="text-muted-foreground">
-              With experience across Flutter, React, and Cloud based systems, I
-              love bringing ideas to life from design to deployment. I've built
-              everything from healthtech platforms to AI-powered apps, and I'm
-              currently leading the development of SuperOver, a cross-platform
-              app designed to help users discover and join local pickup sports
-              games (currently pre-launch).
+              With experience across Flutter, React, and cloud-based systems, I
+              love turning ideas into real products that look good and work even
+              better. I've built everything from healthtech platforms to
+              AI-powered apps, and I'm currently leading SuperOver, an app where
+              people can discover and join local pickup sports games.
             </p>
 
             <p className="text-muted-foreground">
-              Whether it's crafting responsive UI, building APIs that scale, or
-              exploring cloud architecture, I aim to create software that's
-              functional and feels effortless to use. I'm expanding into cloud
-              engineering to unify fullstack development with modern DevOps
-              practices.
+              I enjoy crafting smooth UIs, designing APIs that scale, and
+              exploring cloud infrastructure to make development faster and more
+              reliable. Lately, I've been diving deeper into cloud engineering
+              to connect fullstack and DevOps into one seamless workflow.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
