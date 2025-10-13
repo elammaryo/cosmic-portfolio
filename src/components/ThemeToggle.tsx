@@ -9,7 +9,7 @@ export const ThemeToggle = () => {
     <button
       onClick={toggle}
       className={cn(
-        "fixed top-6 md:top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300"
+        "fixed top-6 md:top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300 cursor-pointer"
       )}
     >
       {isDark ? (
