@@ -74,6 +74,12 @@
 
 @layer base {
   :root {
+    --prism-stops: #ff477e 0%, #ff9b3d 14%, #ffd64d 28%, #4dff88 42%,
+      #4dd4ff 56%, #7c7cff 72%, #ff6bff 86%, #ff477e 100%;
+    --prism-bright: 1.08;
+    --prism-sat: 130%;
+    --prism-halo-blur: 18px;
+
     --background: 210 40% 98%;
     --foreground: 222 47% 11%;
 
@@ -92,6 +98,12 @@
   }
 
   .dark {
+    --prism-stops: #ff2b6e 0%, #ffcc33 14%, #33ff88 28%, #33c9ff 56%,
+      #6a6aff 79%, #ff5cff 82%, #ff2b6e 100%;
+    --prism-bright: 0.94;
+    --prism-sat: 140%;
+    --prism-halo-blur: 14px;
+
     --background: 222 47% 4%;
     --foreground: 213 31% 91%;
 
@@ -105,6 +117,222 @@
     --meteor-from: 48 100% 60%;
     --meteor-via: 48 100% 40%;
     --meteor-shadow: 245 180 10;
+  }
+}
+
+@layer utilities {
+  /* optional frosted base */
+  .glass {
+    @apply rounded-3xl border backdrop-blur;
+    background: color-mix(in oklab, white 8%, transparent);
+    border-color: color-mix(in oklab, white 16%, transparent);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+      0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  /* premium prism sweep */
+  .prism-premium {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    /* easy knobs */
+    --prism-angle: 32deg;
+    --prism-speed: 2500ms;
+    --prism-opacity: 0.9;
+    --prism-sat: 115%;
+    --prism-core-width: 190%;
+    --prism-core-height: 230%;
+    --prism-end-x: 5%;
+  }
+
+  /* HALO (underlay, soft glow) */
+  .prism-premium::before {
+    content: "";
+    position: absolute;
+    width: var(--prism-core-width);
+    height: var(--prism-core-height);
+    left: -45%;
+    top: -65%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--prism-stops));
+    background-size: 280% 100%;
+    filter: blur(var(--prism-halo-blur)) saturate(var(--prism-sat))
+      brightness(var(--prism-bright));
+
+    transform: translateX(-60%) rotate(var(--prism-angle));
+    opacity: 0;
+
+    /* bloom */
+    /* filter: blur(16px) saturate(var(--prism-sat)) brightness(1.05); */
+    mix-blend-mode: screen;
+
+    /* feather (broad) */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.05) 18%,
+      rgba(0, 0, 0, 0.35) 45%,
+      rgba(0, 0, 0, 0.35) 55%,
+      rgba(0, 0, 0, 0.05) 82%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.05) 18%,
+      rgba(0, 0, 0, 0.35) 45%,
+      rgba(0, 0, 0, 0.35) 55%,
+      rgba(0, 0, 0, 0.05) 82%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
+  /* CORE RAY (crisper center with gentle feather) */
+  .prism-premium::after {
+    will-change: transform, opacity, background-position, filter;
+    contain: paint;
+    content: "";
+    position: absolute;
+    width: var(--prism-core-width);
+    height: var(--prism-core-height);
+    left: -45%;
+    top: -65%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--prism-stops));
+    background-size: 280% 100%;
+    filter: saturate(calc(var(--prism-sat) + 10%))
+      brightness(calc(var(--prism-bright) + 0.03));
+
+    transform: translateX(-60%) rotate(var(--prism-angle));
+    opacity: 0;
+
+    mix-blend-mode: screen;
+    /* filter: saturate(calc(var(--prism-sat) + 10%)) brightness(1.03); */
+
+    /* tighter feather for the core */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.08) 28%,
+      rgba(0, 0, 0, 0.6) 48%,
+      rgba(0, 0, 0, 0.6) 52%,
+      rgba(0, 0, 0, 0.08) 72%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 0.08) 28%,
+      rgba(0, 0, 0, 0.6) 48%,
+      rgba(0, 0, 0, 0.6) 52%,
+      rgba(0, 0, 0, 0.08) 72%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
+  .dark .prism-premium {
+    --prism-opacity: 0.82;
+  }
+  .dark .prism-premium.prism-normal-blend::before,
+  .dark .prism-premium.prism-normal-blend::after {
+    mix-blend-mode: normal;
+  }
+
+  @keyframes prismSweepXY {
+    0% {
+      transform: translateX(-60%) rotate(var(--prism-angle));
+      opacity: 0;
+    }
+    12% {
+      opacity: var(--prism-opacity);
+    }
+    88% {
+      opacity: var(--prism-opacity);
+    }
+    100% {
+      transform: translateX(60%) rotate(var(--prism-angle));
+      opacity: var(--prism-opacity);
+    }
+  }
+
+  @keyframes prismEnterAndHold {
+    0% {
+      transform: translateX(-60%) rotate(var(--prism-angle));
+      opacity: 0;
+    }
+    12% {
+      opacity: var(--prism-opacity);
+    }
+    84% {
+      opacity: var(--prism-opacity);
+    }
+    /* Stop INSIDE the button and keep visible */
+    100% {
+      transform: translateX(var(--prism-end-x)) rotate(var(--prism-angle));
+      opacity: var(--prism-opacity);
+    }
+  }
+
+  @keyframes prismFlow {
+    from {
+      background-position: 0% 50%;
+    }
+    to {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes prismIdleFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .prism-premium:hover::before,
+    .group:hover .prism-premium::before {
+      animation: prismEnterAndHold var(--prism-speed)
+          cubic-bezier(0.23, 0.86, 0.28, 0.99) forwards,
+        prismIdleFlow calc(var(--prism-speed) * 1.4) linear var(--prism-speed)
+          infinite alternate;
+    }
+    .prism-premium:hover::after,
+    .group:hover .prism-premium::after {
+      animation: prismEnterAndHold var(--prism-speed)
+          cubic-bezier(0.23, 0.86, 0.28, 0.99) forwards,
+        prismIdleFlow calc(var(--prism-speed) * 1.4) linear var(--prism-speed)
+          infinite alternate;
+    }
+  }
+
+  /* Option: on very dark glass, screen can be too bright; flip if needed */
+  .dark .prism-premium {
+    --prism-opacity: 0.85;
+  }
+  .dark .prism-premium.prism-normal-blend::before,
+  .dark .prism-premium.prism-normal-blend::after {
+    mix-blend-mode: normal;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .prism-active::before,
+    .prism-active::after {
+      animation: prismEnterAndHold var(--prism-speed)
+          cubic-bezier(0.23, 0.86, 0.28, 0.99) forwards,
+        prismIdleFlow calc(var(--prism-speed) * 1.4) linear var(--prism-speed)
+          infinite alternate;
+    }
+
+    .reveal-active .reveal-label {
+      gap: 2;
+      max-width: 140px;
+      opacity: 1;
+    }
   }
 }
 

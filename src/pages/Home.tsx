@@ -1,5 +1,6 @@
 import { AboutSection } from "../components/AboutSection";
 import { ContactsSection } from "../components/ContactsSection";
+import { FloatingActionButton } from "../components/FloatingActionButton";
 import { FooterSection } from "../components/FooterSection";
 import { HeroSection } from "../components/HeroSection";
 import { NavBar } from "../components/NavBar";
@@ -22,6 +23,7 @@ export const Home = () => {
         <ContactsSection />
       </main>
       <FooterSection />
+      <FloatingActionButton />
     </div>
   );
 };
