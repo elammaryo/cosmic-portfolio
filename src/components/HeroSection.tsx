@@ -1,5 +1,4 @@
 import { ArrowDown } from "lucide-react";
-import { useEffect, useRef } from "react";
 
 export const HeroSection = () => {
   return (
