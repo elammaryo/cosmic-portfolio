@@ -11,8 +11,8 @@ export const FloatingActionButton = () => {
       return;
     }
 
-    const delayMs = 6000;
-    const prismMs = 6000;
+    const delayMs = 8000;
+    const prismMs = 8000;
 
     const show = setTimeout(() => {
       button.classList.add("reveal-active", "prism-active");
@@ -30,7 +30,7 @@ export const FloatingActionButton = () => {
 
   return (
     <div className="fixed justify-center w-auto right-8 bottom-10 md:right-15 md:bottom-15">
-      <div className="absolute right-0 bottom-15 z-100 w-100">
+      <div className="absolute md:right-0 bottom-15 z-100 w-100">
         {isChatOpen && <GlazeBot setIsChatOpen={setIsChatOpen} />}
       </div>
       <button
@@ -39,7 +39,7 @@ export const FloatingActionButton = () => {
         onClick={() => {
           setIsChatOpen(!isChatOpen);
         }}
-        className="group inline-flex rounded-md px-4 py-4 items-center justify-center hover:shadow-md duration-300 glass glass-tint prism-premium cursor-auto"
+        className="group inline-flex rounded-md px-4 py-4 items-center justify-center hover:shadow-lg duration-300 glass glass-tint !bg-transparent prism-premium cursor-auto"
       >
         <div className="flex z-10 group-hover:gap-2 group-[.reveal-active]:gap-2">
           <BotMessageSquare />

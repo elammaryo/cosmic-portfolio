@@ -42,16 +42,29 @@ export function GlazeBot({ setIsChatOpen }: any) {
           {chatMessages.map((chat) => {
             return (
               <div className={cn(chat.role == "user" && "flex justify-end")}>
-                <ChatMessage message={chat.content} role={chat.role} />
+                <ChatMessage
+                  message={chat.content}
+                  role={chat.role}
+                  key={chat.id}
+                  loading={false}
+                />
               </div>
             );
           })}
+          {isLoading && (
+            <ChatMessage
+              message=""
+              role="assistant"
+              key={crypto.randomUUID()}
+              loading={isLoading}
+            />
+          )}
         </div>
       </div>
     );
   }
 
-  function ChatMessage({ message, role }: any) {
+  function ChatMessage({ message, role, loading }: any) {
     function ChatBubble() {
       return (
         <div
@@ -62,7 +75,7 @@ export function GlazeBot({ setIsChatOpen }: any) {
               : "glass glass-tint"
           )}
         >
-          {isLoading ? (
+          {loading ? (
             <SyncLoader size={8} color="#ffffff" speedMultiplier={0.6} />
           ) : (
             message
@@ -94,24 +107,35 @@ export function GlazeBot({ setIsChatOpen }: any) {
 
   function ChatInput() {
     const [inputText, setInputText] = useState("");
+    let newChatMessages = chatMessages;
 
     function saveInput(event: any) {
       setInputText(event.target.value);
     }
 
-    function sendMessage() {
-      setChatMessages([
+    async function sendMessage() {
+      newChatMessages = [
         ...chatMessages,
         {
           content: inputText,
           role: "user",
           id: crypto.randomUUID(),
         },
-      ]);
+      ];
+
+      setChatMessages(newChatMessages);
 
       setIsLoading(true);
-      getChatResponse(chatMessages);
+      const aiResponse = await getChatResponse(newChatMessages);
       setIsLoading(false);
+      setChatMessages([
+        ...newChatMessages,
+        {
+          content: aiResponse,
+          role: "assistant",
+          id: crypto.randomUUID(),
+        },
+      ]);
 
       setInputText("");
     }
@@ -143,7 +167,7 @@ export function GlazeBot({ setIsChatOpen }: any) {
   }
 
   return (
-    <div className="glass glass-tint max-w-100 max-h-150 pb-5 pt-3 flex flex-col items-center gap-5 z-50">
+    <div className="glass glass-tint max-w-screen md:max-w-100 max-h-150 pb-5 pt-3 flex flex-col items-center gap-5 z-50">
       <ChatWindow />
       <ChatInput />
     </div>

@@ -98,8 +98,8 @@
   }
 
   .dark {
-    --prism-stops: #ff2b6e 0%, #ffcc33 14%, #33ff88 28%, #33c9ff 42%,
-      #6a6aff 56%, #ff5cff 76%, #ff2b6e 100%;
+    --prism-stops: #33ff88 0%, #33c9ff 25%, #6a6aff 50%, #ff5cff 75%,
+      #ff2b6e 100%;
     --prism-bright: 0.94;
     --prism-sat: 140%;
     --prism-halo-blur: 14px;
@@ -310,10 +310,6 @@
     }
   }
 
-  /* Option: on very dark glass, screen can be too bright; flip if needed */
-  .dark .prism-premium {
-    --prism-opacity: 0.85;
-  }
   .dark .prism-premium.prism-normal-blend::before,
   .dark .prism-premium.prism-normal-blend::after {
     mix-blend-mode: normal;
