@@ -9,7 +9,7 @@ export function GlazeBot({ setIsChatOpen }: any) {
   const [chatMessages, setChatMessages] = useState([
     {
       content:
-        "Hello weary explorer, I'm GlazeBot! 😁\nHere to tell you everything wonderous and magnificent about Omer!\n\nOr we can just chat and play a game or two.\n\nMy first response may take a few seconds while I prepare my ever-growing list of magnificent things about Omer to share with you!",
+        "Hello, weary explorer, I'm GlazeBot! 😁\nHere to tell you everything wonderous and magnificent about Omer.\n\nOr we can just chat and play a game or two.\n\nHeads up: my first reply might take a sec while I shuffle my ever-growing Omer dossier!",
       role: "assistant",
       id: crypto.randomUUID(),
     },
