@@ -36,7 +36,7 @@ export function GlazeBot({ setIsChatOpen }: any) {
           </button>
         </div>
         <div
-          className="flex flex-col h-100 gap-5 overflow-auto scroll-smooth [scrollbar-width:none] pb-5 px-5"
+          className="flex flex-col h-[calc(100dvh-350px)] gap-5 overflow-auto scroll-smooth [scrollbar-width:none] pb-5 px-5"
           ref={chatWindow}
         >
           {chatMessages.map((chat) => {
@@ -69,7 +69,7 @@ export function GlazeBot({ setIsChatOpen }: any) {
       return (
         <div
           className={cn(
-            "whitespace-pre-line text-left max-w-60 p-4 rounded-3xl !shadow-md",
+            "whitespace-pre-line text-left max-w-90 p-4 rounded-3xl !shadow-md",
             role === "user"
               ? "backdrop-blur bg-primary/80 text-white"
               : "glass glass-tint"
@@ -89,13 +89,13 @@ export function GlazeBot({ setIsChatOpen }: any) {
         {role === "user" ? (
           <div className="flex gap-3">
             <ChatBubble />
-            <div className="flex translate-y-1 rounded-full items-center justify-center glass glass-tint h-12 w-12 !shadow-sm">
+            <div className="flex translate-y-1 rounded-full items-center justify-center glass glass-tint h-12 w-12 p-3 !shadow-sm">
               <UserIcon />
             </div>
           </div>
         ) : (
           <div className="flex gap-3 ">
-            <div className="flex translate-y-1 rounded-full items-center justify-center glass glass-tint h-12 w-12 !shadow-sm">
+            <div className="flex translate-y-1 rounded-full items-center justify-center glass glass-tint h-12 w-12 p-3 !shadow-sm">
               <BotMessageSquare />
             </div>
             <ChatBubble />
@@ -167,7 +167,7 @@ export function GlazeBot({ setIsChatOpen }: any) {
   }
 
   return (
-    <div className="glass glass-tint max-w-screen md:max-w-100 max-h-150 pb-5 pt-3 flex flex-col items-center gap-5 z-50">
+    <div className="glass glass-tint transform max-h-[calc(100dvh-100px)] pb-5 pt-3 flex flex-col items-center gap-5 z-50">
       <ChatWindow />
       <ChatInput />
     </div>

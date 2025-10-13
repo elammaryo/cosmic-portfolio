@@ -1,6 +1,7 @@
 import { BotMessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
 import { GlazeBot } from "./GlazeBot";
+import { cn } from "../lib/utils";
 
 export const FloatingActionButton = () => {
   const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
@@ -29,9 +30,15 @@ export const FloatingActionButton = () => {
   }, []);
 
   return (
-    <div className="fixed justify-center w-auto right-8 bottom-10 md:right-15 md:bottom-15">
-      <div className="absolute md:right-0 bottom-15 z-100 w-100">
-        {isChatOpen && <GlazeBot setIsChatOpen={setIsChatOpen} />}
+    <div className="fixed justify-center w-auto right-8 bottom-10 md:right-12 md:bottom-12">
+      <div
+        className={cn(
+          isChatOpen
+            ? "fixed md:max-w-120 inset-x-8 md:inset:none bottom-26 md:bottom-28 z-100 md:translate-x-[calc(100vw-560px)]"
+            : "hidden"
+        )}
+      >
+        <GlazeBot setIsChatOpen={setIsChatOpen} />
       </div>
       <button
         id="chat-button"
