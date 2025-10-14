@@ -1,6 +1,6 @@
 // src/components/SEO.tsx
 import React from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 type SEOProps = {
   title: string;
