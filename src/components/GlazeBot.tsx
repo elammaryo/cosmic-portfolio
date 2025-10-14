@@ -3,8 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "../lib/utils";
 import { SyncLoader } from "react-spinners";
 import { getChatResponse } from "../lib/api";
+import { useTheme } from "../ThemeContext";
 
 export function GlazeBot({ setIsChatOpen }: any) {
+  const { isDark } = useTheme();
   const [isLoading, setIsLoading] = useState(false);
   const [chatMessages, setChatMessages] = useState([
     {
@@ -76,7 +78,11 @@ export function GlazeBot({ setIsChatOpen }: any) {
           )}
         >
           {loading ? (
-            <SyncLoader size={8} color="#ffffff" speedMultiplier={0.6} />
+            <SyncLoader
+              size={7}
+              color={isDark ? "white" : "black"}
+              speedMultiplier={0.6}
+            />
           ) : (
             message
           )}
