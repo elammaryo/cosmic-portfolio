@@ -1,14 +1,27 @@
 export async function getChatResponse(messages: any) {
   const url = "https://ai-chatbot-kcyl.onrender.com/chatbot/aiChatResponse";
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(messages),
-  });
 
-  const data = await response.json();
+  const errorMessage =
+    "Oops! My robo-senses are failing me. 🤖\nI can't seem to get a response right now.\n\nPlease refresh the page or try again later.";
 
-  return data.content;
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(messages),
+    });
+
+    const data = await response.json();
+
+    if (response == undefined || response.status == 200) {
+      return data.content;
+    } else {
+      return errorMessage;
+    }
+  } catch (e) {
+    console.error(e);
+    return errorMessage;
+  }
 }
