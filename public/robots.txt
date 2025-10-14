@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://omerelammary.netlify.app/sitemap.xml
