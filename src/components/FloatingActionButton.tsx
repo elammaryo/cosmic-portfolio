@@ -30,10 +30,10 @@ export const FloatingActionButton = () => {
   }, []);
 
   return (
-    <div className="fixed justify-center w-auto right-8 bottom-10 md:right-12 md:bottom-12">
+    <div className="fixed justify-center w-auto right-5 bottom-5 md:right-12 md:bottom-12">
       <div
         className={cn(
-          "fixed md:max-w-120 inset-x-8 md:inset:none bottom-26 md:bottom-28 z-100 md:translate-x-[calc(100vw-560px)]",
+          "fixed md:max-w-120 inset-x-5 md:inset:none bottom-21 md:bottom-28 z-100 md:translate-x-[calc(100vw-550px)]",
           "transition-opacity transition-transform duration-700 ease-out",
           isChatOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"

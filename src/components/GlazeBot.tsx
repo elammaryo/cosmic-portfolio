@@ -71,10 +71,8 @@ export function GlazeBot({ setIsChatOpen }: any) {
       return (
         <div
           className={cn(
-            "whitespace-pre-line text-left max-w-90 p-4 rounded-3xl !shadow-md",
-            role === "user"
-              ? "backdrop-blur bg-primary/80 text-white"
-              : "glass glass-tint"
+            "whitespace-pre-line text-left max-w-90 p-4 flex items-center rounded-3xl !shadow-md",
+            role === "user" ? "backdrop-blur bg-primary text-white" : "glass"
           )}
         >
           {loading ? (
