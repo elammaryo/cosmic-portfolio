@@ -1,6 +1,11 @@
 export async function getChatResponse(messages: any) {
-  const url = "https://ai-chatbot-kcyl.onrender.com/chatbot/aiChatResponse";
-
+  const url = "https://ai-chatbot-kcyl.onrender.com/chatbot/openaiChatResponse";
+  const allMessages = messages.map((message: any) => {
+    return {
+      content: message.content,
+      role: message.role,
+    };
+  });
   const errorMessage =
     "Oops! My robo-senses are failing me. 🤖\nI can't seem to get a response right now.\n\nPlease refresh the page or try again later.";
 
@@ -10,7 +15,7 @@ export async function getChatResponse(messages: any) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(messages),
+      body: JSON.stringify({ messages: allMessages }),
     });
 
     const data = await response.json();
