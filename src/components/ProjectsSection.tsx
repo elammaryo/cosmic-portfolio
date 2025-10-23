@@ -35,7 +35,7 @@ const projects = [
     img: "/projects/chatbot.png",
     tags: ["React", "NodeJS", "AI", "API Dev"],
     demoUrl: "https://ai-brobot.netlify.app",
-    githubUrl: "https://github.com/elammaryo",
+    githubUrl: "https://github.com/elammaryo/ai-chatbot",
   },
 ];
 
@@ -48,8 +48,8 @@ export const ProjectsSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience
+          Here are some of my recent projects. Feel free to learn more or view
+          the source code using the links below!
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

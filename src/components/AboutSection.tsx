@@ -14,16 +14,16 @@ export const AboutSection = () => {
             <p className="text-muted-foreground">
               With experience across Flutter, React, and cloud-based systems, I
               love turning ideas into real products that look good and work even
-              better. I've built everything from healthtech platforms to
-              AI-powered apps, and I'm currently leading SuperOver, an app where
+              better. I've built everything from healthtech platforms to AI
+              powered apps, and I'm currently leading SuperOver, an app where
               people can discover and join local pickup sports games.
             </p>
 
             <p className="text-muted-foreground">
-              I enjoy crafting smooth UIs, designing APIs that scale, and
+              I enjoy crafting clean UIs, designing APIs that scale, and
               exploring cloud infrastructure to make development faster and more
               reliable. Lately, I've been diving deeper into cloud engineering
-              to connect fullstack and DevOps into one seamless workflow.
+              to connect Fullstack and DevOps into one seamless workflow.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">

@@ -12,7 +12,7 @@ export const FooterSection = () => {
       <p className="text-sm text-muted-foreground">
         {" "}
         Thanks for visiting! I hope you had a{" "}
-        <span className="text-primary">✨ stellar </span> experience! 💫
+        <span className="text-primary">✨ stellar ✨</span> experience!
       </p>
       <p></p>
     </footer>
