@@ -29,7 +29,7 @@ export const ContactsSection = () => {
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Have an opportunity in mind or want to collaborate? Feel free to reach
-          out. I'm always open to discussing new opportunities
+          out. I'm always open to discussing new opportunities!
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
