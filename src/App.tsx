@@ -3,6 +3,7 @@ import { NotFound } from "./pages/NotFound";
 import { Home } from "./pages/Home";
 import { Toaster } from "./components/ui/toaster";
 import { ThemeProvider } from "./ThemeContext";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
+      <SpeedInsights />
     </>
   );
 }
