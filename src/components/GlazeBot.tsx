@@ -43,7 +43,10 @@ export function GlazeBot({ setIsChatOpen }: any) {
         >
           {chatMessages.map((chat) => {
             return (
-              <div className={cn(chat.role == "user" && "flex justify-end")}>
+              <div
+                key={chat.id}
+                className={cn(chat.role == "user" && "flex justify-end")}
+              >
                 <ChatMessage
                   message={chat.content}
                   role={chat.role}
