@@ -10,7 +10,11 @@ export const HeroSection = () => {
         keywords={[
           "Omer Elammary",
           "software engineer Toronto",
+          "software developer Toronto",
           "full stack developer",
+          "full stack engineer",
+          "flutter developer",
+          "react developer",
           "Flutter",
           "React",
           "Node.js",
