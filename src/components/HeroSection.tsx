@@ -35,7 +35,7 @@ export const HeroSection = () => {
               addressLocality: "Toronto",
               addressCountry: "CA",
             },
-            url: "https://omerelammary.netlify.app",
+            url: "https://omerelammary.com",
             sameAs: [
               "https://www.linkedin.com/in/omerelammary",
               "https://github.com/elammaryo",
@@ -45,7 +45,7 @@ export const HeroSection = () => {
             "@context": "https://schema.org",
             "@type": "WebSite",
             name: "Cosmic Portfolio",
-            url: "https://omerelammary.netlify.app",
+            url: "https://omerelammary.com",
           },
           {
             "@context": "https://schema.org",
@@ -56,31 +56,31 @@ export const HeroSection = () => {
                 "@type": "ListItem",
                 position: 1,
                 name: "Hero",
-                url: "https://omerelammary.netlify.app#hero",
+                url: "https://omerelammary.com#hero",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "About",
-                url: "https://omerelammary.netlify.app#about",
+                url: "https://omerelammary.com#about",
               },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: "Skills",
-                url: "https://omerelammary.netlify.app#skills",
+                url: "https://omerelammary.com#skills",
               },
               {
                 "@type": "ListItem",
                 position: 4,
                 name: "Projects",
-                url: "https://omerelammary.netlify.app#projects",
+                url: "https://omerelammary.com#projects",
               },
               {
                 "@type": "ListItem",
                 position: 5,
                 name: "Contact",
-                url: "https://omerelammary.netlify.app#contact",
+                url: "https://omerelammary.com#contact",
               },
             ],
           },
@@ -99,7 +99,7 @@ export const HeroSection = () => {
                   operatingSystem: "iOS, Android",
                   description:
                     "Cross-platform Flutter app for discovering and joining local pickup sports games. Pre-launch.",
-                  url: "https://omerelammary.netlify.app#projects",
+                  url: "https://omerelammary.com#projects",
                 },
               },
               {
@@ -110,7 +110,7 @@ export const HeroSection = () => {
                   name: "Self-Order Kiosk MVP",
                   description:
                     "iPad-based kiosk for menu browsing, cart, and checkout.",
-                  url: "https://omerelammary.netlify.app#projects",
+                  url: "https://omerelammary.com#projects",
                 },
               },
             ],
