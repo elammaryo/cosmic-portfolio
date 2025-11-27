@@ -19,13 +19,12 @@ const projects = [
   },
   {
     id: 2,
-    title: "Self Order Kiosk",
+    title: "GameOver Studio",
     description:
-      "A customer facing food ordering application for fastfood restaurant kiosks",
-    img: "/projects/kiosk-app.png",
-    tags: ["Flutter", "Figma", "JSON", "State"],
-    demoUrl: "",
-    githubUrl: "https://github.com/elammaryo/gyo-self-order",
+      "A full-stack music portfolio featuring my beats, a custom audio player, and live Spotify playlist integration. Includes secure audio streaming, interactive UI, and real-time data syncing.",
+    img: "/projects/gameover.png",
+    tags: ["Next.js", "AWS S3", "Spotify API", "OAuth", "Tailwind CSS"],
+    demoUrl: "https://gameover.studio",
   },
   {
     id: 3,
