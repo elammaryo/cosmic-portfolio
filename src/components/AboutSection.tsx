@@ -32,7 +32,7 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="src/assets/documents/resume.pdf"
+                href="/documents/resume.pdf"
                 download="Omer_Elammary_Resume.pdf"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
