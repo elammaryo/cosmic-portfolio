@@ -13,8 +13,9 @@ const context = createContext<ThemeContext | null>(null);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")
-    .matches;
+  const prefersDark = window.matchMedia?.(
+    "(prefers-color-scheme: dark)"
+  ).matches;
   const [theme, setTheme] = useState<Theme>(
     (localStorage.getItem("theme") as Theme) || (prefersDark ? "dark" : "light")
   );

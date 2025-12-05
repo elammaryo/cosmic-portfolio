@@ -145,6 +145,9 @@ export const SkillsSection = () => {
                 {skill.img !== undefined ? (
                   <img
                     src={useAltImg ? skill.altImg : skill.img}
+                    alt={`${skill.name} logo`}
+                    loading="lazy"
+                    decoding="async"
                     className={cn(
                       "logo mr-5",
                       skill.name == "React" && "logo-spinner"
