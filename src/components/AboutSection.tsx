@@ -12,11 +12,12 @@ export const AboutSection = () => {
             <h3>Software Engineer & Tech Creator</h3>
 
             <p className="text-muted-foreground">
-              With experience across Flutter, React, and cloud-based systems, I
-              love turning ideas into real products that look good and work even
-              better. I've built everything from healthtech platforms to AI
-              powered apps, and I'm currently leading SuperOver, an app where
-              people can discover and join local pickup sports games.
+              With experience across Node, Flutter, React, and cloud-based
+              systems, I love turning ideas into real products that look good
+              and work even better. I've built everything from healthtech
+              platforms to AI powered apps, and I'm currently leading SuperOver,
+              an app where people can discover and join local pickup sports
+              games.
             </p>
 
             <p className="text-muted-foreground">
