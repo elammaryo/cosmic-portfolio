@@ -1,17 +1,13 @@
 import reactLogo from "../assets/icons/react.svg";
 import flutterLogo from "../assets/icons/flutter.svg";
 import nodeJsLogo from "../assets/icons/nodejs.svg";
-import htmlLogo from "../assets/icons/html.svg";
-import cssLogo from "../assets/icons/css.svg";
 import tailwindCssLogo from "../assets/icons/tailwind-css.svg";
 import goLogo from "../assets/icons/golang.svg";
-import supabase from "../assets/icons/supabase.svg";
 import ibmCLoudLogo from "../assets/icons/ibm_cloud.svg";
 import githubLogo from "../assets/icons/github.svg";
 import githubWhiteLogo from "../assets/icons/github-white.svg";
 import firebaseLogo from "../assets/icons/firebase.svg";
 import dockerLogo from "../assets/icons/docker.svg";
-import jsLogo from "../assets/icons/javascript.svg";
 import tsLogo from "../assets/icons/typescript.svg";
 import sqlLogo from "../assets/icons/sql.svg";
 import actionsLogo from "../assets/icons/github-actions.svg";
@@ -21,6 +17,7 @@ import figmaLogo from "../assets/icons/figma.svg";
 import postmanLogo from "../assets/icons/postman.svg";
 import cursorLogo from "../assets/icons/cursor.svg";
 import cursorWhiteLogo from "../assets/icons/cursor-white.png";
+import nextJsLogo from "../assets/icons/nextjs.svg";
 import { useState } from "react";
 import { cn } from "../lib/utils";
 import { Code } from "lucide-react";
@@ -30,16 +27,13 @@ const skills = [
   // frontend
   { name: "Flutter", category: ["frontend", "featured"], img: flutterLogo },
   { name: "React", category: ["frontend", "featured"], img: reactLogo },
-  { name: "JavaScript", category: ["frontend"], img: jsLogo },
+  { name: "Next.js", category: ["frontend"], img: nextJsLogo },
   { name: "TypeScript", category: ["frontend"], img: tsLogo },
-  { name: "HTML", category: ["frontend"], img: htmlLogo },
-  { name: "CSS", category: ["frontend"], img: cssLogo },
   { name: "Tailwind CSS", category: ["frontend"], img: tailwindCssLogo },
 
   // backend
-  { name: "NodeJS", category: ["backend", "featured"], img: nodeJsLogo },
+  { name: "Node.js", category: ["backend", "featured"], img: nodeJsLogo },
   { name: "Go", category: ["backend"], img: goLogo },
-  { name: "Supabase", category: ["backend", "Cloud / DevOps"], img: supabase },
   { name: "SQL", category: ["backend"], img: sqlLogo },
   { name: "Java", category: ["backend"], img: javaLogo },
 
@@ -54,7 +48,6 @@ const skills = [
     category: ["Cloud / DevOps"],
     img: ibmCLoudLogo,
   },
-
   {
     name: "CI/CD (GitHub Actions)",
     category: ["Cloud / DevOps"],
