@@ -10,7 +10,7 @@ const projects = [
     tags: [
       "Flutter",
       "Firebase",
-      "NodeJS",
+      "Node.js",
       "API Dev",
       "CI/CD",
       "and more...  ",
@@ -25,14 +25,15 @@ const projects = [
     img: "/projects/gameover.png",
     tags: ["Next.js", "AWS S3", "Spotify API", "OAuth", "Tailwind CSS"],
     demoUrl: "https://gameover.studio",
+    githubUrl: "https://github.com/elammaryo/gameover",
   },
   {
     id: 3,
     title: "AI Chatbot",
     description:
-      "An AI chatbot created using React and NodeJS. Integrated with an LLM that retains context during your session.",
+      "An AI chatbot created using React and Node.js integrated with an LLM that retains context during your session.",
     img: "/projects/chatbot.png",
-    tags: ["React", "NodeJS", "AI", "API Dev"],
+    tags: ["React", "Node.js", "AI", "API Dev"],
     demoUrl: "https://ai-brobot.netlify.app",
     githubUrl: "https://github.com/elammaryo/ai-chatbot",
   },
