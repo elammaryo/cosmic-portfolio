@@ -12,19 +12,19 @@ export const AboutSection = () => {
             <h3>Software Engineer & Tech Creator</h3>
 
             <p className="text-muted-foreground">
-              With experience across Node, Flutter, React, and cloud-based
-              systems, I love turning ideas into real products that look good
-              and work even better. I've built everything from healthtech
-              platforms to AI powered apps, and I'm currently leading SuperOver,
-              an app where people can discover and join local pickup sports
-              games.
+              I'm Omer, a software engineer based in Mississauga who genuinely
+              loves building things. Whether it's a mobile app, backend systems,
+              or a side project that probably started as "just a quick idea",
+              I'm most alive when I'm turning an idea into something real and
+              tangible.
             </p>
 
             <p className="text-muted-foreground">
-              I enjoy crafting clean UIs, designing APIs that scale, and
-              exploring cloud infrastructure to make development faster and more
-              reliable. Lately, I've been diving deeper into cloud engineering
-              to connect Fullstack and DevOps into one seamless workflow.
+              I've spent the last couple of years working across healthtech and
+              early stage startups, which taught me how to move fast, wear many
+              hats, and care deeply about the details. Right now I'm the
+              founding engineer at SuperOver while pushing further into cloud
+              and DevOps, owning the full journey from idea to deployment.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
