@@ -3,7 +3,7 @@ import flutterLogo from "../assets/icons/flutter.svg";
 import nodeJsLogo from "../assets/icons/nodejs.svg";
 import tailwindCssLogo from "../assets/icons/tailwind-css.svg";
 import goLogo from "../assets/icons/golang.svg";
-import ibmCLoudLogo from "../assets/icons/ibm_cloud.svg";
+import googleCLoudLogo from "../assets/icons/google-cloud.svg";
 import githubLogo from "../assets/icons/github.svg";
 import githubWhiteLogo from "../assets/icons/github-white.svg";
 import firebaseLogo from "../assets/icons/firebase.svg";
@@ -18,6 +18,7 @@ import postmanLogo from "../assets/icons/postman.svg";
 import cursorLogo from "../assets/icons/cursor.svg";
 import cursorWhiteLogo from "../assets/icons/cursor-white.png";
 import nextJsLogo from "../assets/icons/nextjs.svg";
+import dartLogo from "../assets/icons/dart.svg";
 import { useState } from "react";
 import { cn } from "../lib/utils";
 import { Code } from "lucide-react";
@@ -28,6 +29,7 @@ const skills = [
   { name: "Flutter", category: ["frontend", "featured"], img: flutterLogo },
   { name: "React", category: ["frontend", "featured"], img: reactLogo },
   { name: "Next.js", category: ["frontend"], img: nextJsLogo },
+  { name: "Dart", category: ["frontend"], img: dartLogo },
   { name: "TypeScript", category: ["frontend"], img: tsLogo },
   { name: "Tailwind CSS", category: ["frontend"], img: tailwindCssLogo },
 
@@ -44,9 +46,9 @@ const skills = [
     img: firebaseLogo,
   },
   {
-    name: "IBM Cloud",
+    name: "Google Cloud",
     category: ["Cloud / DevOps"],
-    img: ibmCLoudLogo,
+    img: googleCLoudLogo,
   },
   {
     name: "CI/CD (GitHub Actions)",
