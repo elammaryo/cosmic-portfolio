@@ -1,91 +1,10 @@
 import { Menu, X } from "lucide-react";
 import { cn } from "../lib/utils";
 import { useEffect, useState } from "react";
-
-const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
-
+import { ThemeToggle } from "./ThemeToggle";
+const navItems = [{ name: "About", href: "#about" }, { name: "Expertise", href: "#skills" }, { name: "Work", href: "#projects" }, { name: "Contact", href: "#contact" }];
 export const NavBar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(document.documentElement.scrollTop > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <nav
-      className={cn(
-        "fixed w-full z-40 transition-all duration-300 pr-10",
-        isScrolled ? "py-6 bg-background/80 backdrop-blur-md shadow-x5" : "py-6"
-      )}
-    >
-      <div className="container flex items-center justify-between">
-        <a
-          className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
-        >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground">Omer Elammary</span>{" "}
-            Portfolio
-          </span>
-        </a>
-
-        {/* Desktop nav*/}
-        <div className="hidden md:flex space-x-8">
-          {navItems.map((item, key) => (
-            <a
-              key={key}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
-
-        {/* Mobile nav*/}
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      <div
-        className={cn(
-          "fixed top-0 left-0 right-0 h-screen w-screen bg-background/95 backdrop-blur-md z-30 flex flex-col items-center justify-center",
-          "transition-all duration-300 md:hidden",
-          isMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        )}
-      >
-        <div className="flex flex-col space-y-8 text-xl">
-          {navItems.map((item, key) => (
-            <a
-              key={key}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
-      </div>
-    </nav>
-  );
+  const [isScrolled, setIsScrolled] = useState(false); const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useEffect(() => { const onScroll = () => setIsScrolled(scrollY > 12); addEventListener("scroll", onScroll); return () => removeEventListener("scroll", onScroll); }, []);
+  return <nav className={cn("site-nav", isScrolled && "site-nav-scrolled")}><div className="nav-inner"><a className="wordmark" href="#hero"><i>O</i><span>OMER<br />ELAMMARY</span></a><div className="desktop-links">{navItems.map(item => <a key={item.name} href={item.href}>{item.name}</a>)}</div><div className="nav-tools"><ThemeToggle /><a href="#contact" className="nav-cta">Let’s talk <span>↗</span></a></div><button onClick={() => setIsMenuOpen(!isMenuOpen)} className="menu-toggle" aria-label="Toggle menu">{isMenuOpen ? <X /> : <Menu />}</button></div><div className={cn("mobile-menu", isMenuOpen && "mobile-menu-open")}>{navItems.map(item => <a key={item.name} href={item.href} onClick={() => setIsMenuOpen(false)}>{item.name}</a>)}</div></nav>;
 };

@@ -1,182 +1,42 @@
-import { BotMessageSquare, UserIcon, X } from "lucide-react";
+import { ArrowUp, BotMessageSquare, RotateCcw, Send, Sparkles, UserIcon, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import type { FormEvent } from "react";
 import { cn } from "../lib/utils";
-import { SyncLoader } from "react-spinners";
 import { getChatResponse } from "../lib/api";
-import { useTheme } from "../ThemeContext";
 
-export function GlazeBot({ setIsChatOpen }: any) {
-  const { isDark } = useTheme();
+type Message = { content: string; role: "assistant" | "user"; id: string };
+type Props = { setIsChatOpen: (isOpen: boolean) => void };
+const welcome: Message = { id: "welcome", role: "assistant", content: "Hey — I’m GlazeBot. Ask me about Omer’s work, his stack, or what he’s building next." };
+
+export function GlazeBot({ setIsChatOpen }: Props) {
+  const [messages, setMessages] = useState<Message[]>([welcome]);
+  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [chatMessages, setChatMessages] = useState([
-    {
-      content:
-        "Hello, weary explorer, I'm GlazeBot! 😁\nHere to tell you everything wonderous and magnificent about Omer.\n\nOr we can just chat and play a game or two.\n\nHeads up: my first reply might take a sec while I shuffle my ever-growing Omer dossier!",
-      role: "assistant",
-      id: crypto.randomUUID(),
-    },
-  ]);
+  const feedRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  function ChatWindow() {
-    const chatWindow = useRef(null);
+  useEffect(() => { feedRef.current?.scrollTo({ top: feedRef.current.scrollHeight, behavior: "smooth" }); }, [messages, isLoading]);
+  useEffect(() => { const closeOnEscape = (event: globalThis.KeyboardEvent) => event.key === "Escape" && setIsChatOpen(false); window.addEventListener("keydown", closeOnEscape); inputRef.current?.focus(); return () => window.removeEventListener("keydown", closeOnEscape); }, [setIsChatOpen]);
 
-    useEffect(() => {
-      const containerElem: any = chatWindow.current;
-      if (containerElem) {
-        containerElem.scrollTop = containerElem.scrollHeight;
-      }
-    }, [chatMessages]);
+  const sendMessage = async () => {
+    const content = input.trim();
+    if (!content || isLoading) return;
+    const nextMessages = [...messages, { content, role: "user" as const, id: crypto.randomUUID() }];
+    setMessages(nextMessages); setInput(""); setIsLoading(true);
+    const response = await getChatResponse(nextMessages);
+    setMessages(current => [...current, { content: response, role: "assistant", id: crypto.randomUUID() }]); setIsLoading(false);
+  };
+  const onSubmit = (event: FormEvent) => { event.preventDefault(); void sendMessage(); };
 
-    return (
-      <div className="flex flex-col w-full">
-        <div className="flex justify-end px-5">
-          <button
-            className="h-10 cursor-pointer"
-            onClick={() => setIsChatOpen(false)}
-          >
-            <X />
-          </button>
-        </div>
-        <div
-          className="flex flex-col h-[calc(100dvh-350px)] gap-5 overflow-auto scroll-smooth [scrollbar-width:none] pb-5 px-5"
-          ref={chatWindow}
-        >
-          {chatMessages.map((chat) => {
-            return (
-              <div
-                key={chat.id}
-                className={cn(chat.role == "user" && "flex justify-end")}
-              >
-                <ChatMessage
-                  message={chat.content}
-                  role={chat.role}
-                  key={chat.id}
-                  loading={false}
-                />
-              </div>
-            );
-          })}
-          {isLoading && (
-            <ChatMessage
-              message=""
-              role="assistant"
-              key={crypto.randomUUID()}
-              loading={isLoading}
-            />
-          )}
-        </div>
-      </div>
-    );
-  }
-
-  function ChatMessage({ message, role, loading }: any) {
-    function ChatBubble() {
-      return (
-        <div
-          className={cn(
-            "whitespace-pre-line text-left max-w-90 p-4 flex items-center rounded-3xl !shadow-md",
-            role === "user" ? "backdrop-blur bg-primary text-white" : "glass"
-          )}
-        >
-          {loading ? (
-            <SyncLoader
-              size={7}
-              color={isDark ? "white" : "black"}
-              speedMultiplier={0.6}
-            />
-          ) : (
-            message
-          )}
-        </div>
-      );
-    }
-
-    return (
-      <div>
-        {role === "user" ? (
-          <div className="flex gap-3">
-            <ChatBubble />
-            <div className="flex translate-y-1 rounded-full items-center justify-center glass glass-tint h-12 w-12 p-3 !shadow-sm">
-              <UserIcon />
-            </div>
-          </div>
-        ) : (
-          <div className="flex gap-3 ">
-            <div className="flex translate-y-1 rounded-full items-center justify-center glass glass-tint h-12 w-12 p-3 !shadow-sm">
-              <BotMessageSquare />
-            </div>
-            <ChatBubble />
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  function ChatInput() {
-    const [inputText, setInputText] = useState("");
-    let newChatMessages = chatMessages;
-
-    function saveInput(event: any) {
-      setInputText(event.target.value);
-    }
-
-    async function sendMessage() {
-      newChatMessages = [
-        ...chatMessages,
-        {
-          content: inputText,
-          role: "user",
-          id: crypto.randomUUID(),
-        },
-      ];
-
-      setChatMessages(newChatMessages);
-
-      setIsLoading(true);
-      const aiResponse = await getChatResponse(newChatMessages);
-      setIsLoading(false);
-      setChatMessages([
-        ...newChatMessages,
-        {
-          content: aiResponse,
-          role: "assistant",
-          id: crypto.randomUUID(),
-        },
-      ]);
-
-      setInputText("");
-    }
-
-    return (
-      <div className="flex w-full gap-3 items-center justify-between px-5">
-        <input
-          className="w-full h-8 px-3 py-5 bg-primary/20 rounded-md"
-          placeholder="Send a message..."
-          onChange={saveInput}
-          onKeyDown={(event) => {
-            if (event.key == "Enter") {
-              sendMessage();
-            }
-          }}
-        />
-        <button
-          className="cosmic-button rounded-md px-3 py-2 bg-primary"
-          onClick={() => {
-            if (inputText != "") {
-              sendMessage();
-            }
-          }}
-        >
-          Send
-        </button>
-      </div>
-    );
-  }
-
-  return (
-    <div className="glass glass-tint transform max-h-[calc(100dvh-100px)] pb-5 pt-3 flex flex-col items-center gap-5 z-50">
-      <ChatWindow />
-      <ChatInput />
+  return <div className="glazebot" role="dialog" aria-label="Chat with GlazeBot">
+    <header className="glazebot-head"><div className="bot-mark"><BotMessageSquare size={18} /></div><div><strong>GlazeBot</strong><span><i /> Omer’s digital guide</span></div><button className="bot-close" onClick={() => setIsChatOpen(false)} aria-label="Close chat"><X size={18} /></button></header>
+    <div className="bot-intro"><Sparkles size={13} /> Ask anything about Omer’s work</div>
+    <div className="bot-feed" ref={feedRef} aria-live="polite">
+      {messages.map(message => <div className={cn("bot-row", message.role === "user" && "bot-row-user")} key={message.id}><div className="bot-avatar">{message.role === "user" ? <UserIcon size={14} /> : <BotMessageSquare size={14} />}</div><p className={cn("bot-bubble", message.role === "user" && "bot-bubble-user")}>{message.content}</p></div>)}
+      {isLoading && <div className="bot-row"><div className="bot-avatar"><BotMessageSquare size={14} /></div><div className="bot-typing"><i /><i /><i /></div></div>}
     </div>
-  );
+    <div className="bot-suggestions"><button onClick={() => setInput("What kind of work does Omer do?")}>What does Omer build?</button><button onClick={() => setInput("Tell me about SuperOver")}>About SuperOver</button></div>
+    <form className="bot-input" onSubmit={onSubmit}><input ref={inputRef} value={input} onChange={event => setInput(event.target.value)} placeholder="Message GlazeBot…" aria-label="Message GlazeBot" /><button type="submit" disabled={!input.trim() || isLoading} aria-label="Send message">{isLoading ? <RotateCcw className="bot-spin" size={17} /> : <Send size={17} />}</button></form>
+    <footer>Press <kbd>Esc</kbd> to close <ArrowUp size={12} /></footer>
+  </div>;
 }

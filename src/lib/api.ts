@@ -1,32 +1,12 @@
-export async function getChatResponse(messages: any) {
+type ChatMessage = { content: string; role: "assistant" | "user" };
+
+export async function getChatResponse(messages: ChatMessage[]) {
   const url = "https://ai-chatbot-kcyl.onrender.com/chatbot/openaiChatResponse";
-  const allMessages = messages.map((message: any) => {
-    return {
-      content: message.content,
-      role: message.role,
-    };
-  });
-  const errorMessage =
-    "Oops! My robo-senses are failing me. 🤖\nI can't seem to get a response right now.\n\nPlease refresh the page or try again later.";
-
+  const errorMessage = "I’m having trouble reaching my mission control right now. Please try again in a moment.";
   try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ messages: allMessages }),
-    });
-
-    const data = await response.json();
-
-    if (response == undefined || response.status == 200) {
-      return data.content;
-    } else {
-      return errorMessage;
-    }
-  } catch (e) {
-    console.error(e);
-    return errorMessage;
-  }
+    const response = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: messages.map(({ content, role }) => ({ content, role })) }) });
+    if (!response.ok) return errorMessage;
+    const data: { content?: string } = await response.json();
+    return data.content?.trim() || errorMessage;
+  } catch (error) { console.error(error); return errorMessage; }
 }
