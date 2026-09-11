@@ -2,7 +2,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "../lib/utils";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
-const navItems = [{ name: "About", href: "#about" }, { name: "Expertise", href: "#skills" }, { name: "Work", href: "#projects" }, { name: "Contact", href: "#contact" }];
+const navItems = [{ name: "About", href: "#about" }, { name: "Experience", href: "#experience" }, { name: "Expertise", href: "#skills" }, { name: "Work", href: "#projects" }, { name: "Contact", href: "#contact" }];
 export const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false); const [isMenuOpen, setIsMenuOpen] = useState(false);
   useEffect(() => { const onScroll = () => setIsScrolled(scrollY > 12); addEventListener("scroll", onScroll); return () => removeEventListener("scroll", onScroll); }, []);

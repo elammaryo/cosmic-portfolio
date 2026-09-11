@@ -1,131 +1,78 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
+import "./ProjectsSection.css";
 
 const projects = [
   {
-    id: 1,
-    title: "SuperOver App",
-    description:
-      "A cross platform pickup sports app. Check out our page and join the waitlist to stay updated on events and our upcoming release!",
-    img: "/projects/superover.png",
-    tags: [
-      "Flutter",
-      "Firebase",
-      "Node.js",
-      "API Dev",
-      "CI/CD",
-      "and more...  ",
-    ],
-    demoUrl: "https://superoverapp.com",
+    title: "SuperOver",
+    category: "Mobile platform · Founding engineer",
+    description: "Making it easier to find a game and get out there. I built the mobile app, backend, and admin tools for a local sports booking platform.",
+    image: "/projects/superover.png",
+    capabilities: ["Sports booking", "Real-time chat", "Stripe payments"],
+    stack: "Flutter / React / Firebase / Node.js",
+    url: "https://superoverapp.com",
+    source: null,
   },
   {
-    id: 2,
     title: "GameOver Studio",
-    description:
-      "A full-stack music portfolio featuring my beats, a custom audio player, and live Spotify playlist integration. Includes secure audio streaming, interactive UI, and real-time data syncing.",
-    img: "/projects/gameover.png",
-    tags: ["Next.js", "AWS S3", "Spotify API", "OAuth", "Tailwind CSS"],
-    demoUrl: "https://gameover.studio",
-    githubUrl: "https://github.com/elammaryo/gameover",
-  },
-  {
-    id: 3,
-    title: "AI Chatbot",
-    description:
-      "An AI chatbot created using React and Node.js integrated with an LLM that retains context during your session.",
-    img: "/projects/chatbot.png",
-    tags: ["React", "Node.js", "AI", "API Dev"],
-    demoUrl: "https://ai-brobot.netlify.app",
-    githubUrl: "https://github.com/elammaryo/ai-chatbot",
+    category: "Music platform · Personal project",
+    description: "A home for my beats, built with the same care as the music. Custom audio playback, secure streaming, and Spotify integration bring the collection to life.",
+    image: "/projects/gameover.png",
+    capabilities: ["Custom audio player", "Secure audio delivery", "Spotify integration"],
+    stack: "Next.js / TypeScript / AWS S3 / Spotify API",
+    url: "https://gameover.studio",
+    source: "https://github.com/elammaryo/gameover",
   },
 ];
 
-export const ProjectsSection = () => {
-  return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Featured <span className="text-primary"> Projects </span>
-        </h2>
+export const ProjectsSection = () => (
+  <section id="projects" className="selected-projects" aria-labelledby="projects-heading">
+    <div className="container">
+      <header className="projects-heading">
+        <div><p className="section-overline">Ideas, made real</p><h2 id="projects-heading">Selected <span>work.</span></h2></div>
+        <p>Things I’ve built around the things I care about: people, play, and music.</p>
+      </header>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Feel free to learn more or view
-          the source code using the links below.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => {
-            return (
-              <div
-                key={key}
-                className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col"
-              >
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={project.img}
-                    alt={`${project.title} screenshot`}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-
-                <div className="px-6 pt-6">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, key) => {
-                      return (
-                        <span
-                          key={key}
-                          className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary"
-                        >
-                          {tag}
-                        </span>
-                      );
-                    })}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-1">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {project.description}
-                  </p>
-                </div>
-                <div className="mt-auto flex items-center px-6 pb-6">
-                  <div className="flex space-x-3">
-                    {project.demoUrl && (
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                      >
-                        <Github size={20} />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+      <article className="project-feature" aria-labelledby="gameday-title">
+        <div className="gameday-art" aria-hidden="true">
+          <span className="project-art-index">01 / COMMUNITY & CODE</span>
+          <div className="pitch"><div className="pitch-center" /><div className="pitch-box pitch-box-top" /><div className="pitch-box pitch-box-bottom" /><i className="pitch-player player-one" /><i className="pitch-player player-two" /><i className="pitch-player player-three" /></div>
+          <div className="gameday-art-title">GameDay<span>See you on the pitch.</span></div>
+          <span className="project-art-caption">Pickup soccer. Built together.</span>
         </div>
-
-        <div className="text-center mt-12">
-          <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2 "
-            href="https://github.com/elammaryo"
-            target="_blank"
-          >
-            Check my GitHub <ArrowRight size={16} />
-          </a>
+        <div className="project-feature-copy">
+          <p className="project-category">Independent venture · Web platform</p>
+          <h3 id="gameday-title">GameDay</h3>
+          <p className="project-tagline">Built for the beautiful game.</p>
+          <p className="project-description">Bringing people together for pickup soccer — and building the system behind it. I created the website and admin dashboard, from game discovery and booking to payments and finances.</p>
+          <ul className="project-capabilities gameday-capabilities">
+            <li><strong>Book a spot</strong><span>Discover sessions, book a spot, and pay by card through Stripe or by e-transfer.</span></li>
+            <li><strong>Close the loop</strong><span>Automated e-transfer verification from incoming emails and confirmation emails through Resend.</span></li>
+            <li><strong>Run the game</strong><span>Admin tools for sessions, venues, revenue, and profits.</span></li>
+          </ul>
+          <details className="project-stage"><summary>Built and tested · preparing for launch</summary><p>We’ve hosted two pickup sessions. Booking, card payments, and automated e-transfer verification are functional and tested, with the platform preparing for launch.</p></details>
+          <div className="project-links"><a href="https://gamedaygta.com" target="_blank" rel="noreferrer">Explore GameDay <ArrowUpRight size={16} aria-hidden="true" /></a></div>
         </div>
+      </article>
+
+      <div className="project-pair">
+        {projects.map((project, index) => (
+          <article className="selected-project" key={project.title}>
+            <a className="project-preview" href={project.url} target="_blank" rel="noreferrer" aria-label={`Visit ${project.title} (opens in a new tab)`}>
+              <img src={project.image} alt={`${project.title} website preview`} loading="lazy" decoding="async" />
+              <span className="project-preview-action"><ArrowUpRight size={20} aria-hidden="true" /></span>
+            </a>
+            <div className="selected-project-copy">
+              <p className="project-category">0{index + 2} / {project.category}</p>
+              <h3>{project.title}</h3>
+              <p className="project-description">{project.description}</p>
+              <ul className="project-capabilities project-pills">{project.capabilities.map(item => <li key={item}>{item}</li>)}</ul>
+              <p className="project-stack">{project.stack}</p>
+              <div className="project-links"><a href={project.url} target="_blank" rel="noreferrer">Visit site <ArrowUpRight size={16} aria-hidden="true" /></a>{project.source && <a href={project.source} target="_blank" rel="noreferrer"><Github size={16} aria-hidden="true" /> Source</a>}</div>
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
-  );
-};
+      <a className="projects-github" href="https://github.com/elammaryo" target="_blank" rel="noreferrer">More experiments on GitHub <ArrowUpRight size={16} aria-hidden="true" /></a>
+    </div>
+  </section>
+);

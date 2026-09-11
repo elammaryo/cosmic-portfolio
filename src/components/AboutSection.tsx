@@ -12,7 +12,7 @@ export const AboutSection = () => {
             <h3>Software Engineer & Tech Creator</h3>
 
             <p className="text-muted-foreground">
-              I'm Omer, a software engineer based in Mississauga who genuinely
+              I'm Omer, a software engineer based in Toronto who genuinely
               loves building things. Whether it's a mobile app, backend systems,
               or a side project that probably started as "just a quick idea",
               I'm most alive when I'm turning an idea into something real and
@@ -20,11 +20,11 @@ export const AboutSection = () => {
             </p>
 
             <p className="text-muted-foreground">
-              I've spent the last couple of years working across healthtech and
-              early stage startups, which taught me how to move fast, wear many
-              hats, and care deeply about the details. Right now I'm the
-              founding engineer at SuperOver while pushing further into cloud
-              and DevOps, owning the full journey from idea to deployment.
+              My work has taken me from healthtech to building SuperOver as its
+              founding engineer. Now I’m at CMiC, building Flutter applications
+              for construction project management software. Outside work, I’m
+              building GameDay — bringing people together
+              for pickup soccer, with a little software behind the scenes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">

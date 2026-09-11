@@ -18,13 +18,29 @@ export const HeroSection = () => (
       <div className="container hero-layout">
         <div className="hero-copy">
           <div className="eyebrow"><Sparkles size={14} /> Available for interesting work</div>
-          <p className="hero-kicker">Software engineer · Toronto, Canada</p>
-          <h1>Building digital<br /><em>experiences</em> with<br />real gravity.</h1>
-          <p className="hero-description">I’m Omer — a full-stack engineer turning ambitious ideas into thoughtful products, from first pixel to cloud deployment.</p>
+          <h1>Turning caffeine <span className="hero-plus">+</span> code into <em>beautiful</em> applications.</h1>
+          <p className="hero-description">I’m Omer, a software engineer building web and mobile experiences—from first pixel to cloud deployment.</p>
           <div className="hero-actions"><a href="#projects" className="cosmic-button">Explore selected work <ArrowUpRight size={17} /></a><a href="https://github.com/elammaryo" target="_blank" rel="noreferrer" className="quiet-button"><Github size={18} /> GitHub</a></div>
-          <div className="hero-stats"><div><strong>Full stack</strong><span>web & mobile</span></div><div><strong>Cloud-ready</strong><span>systems thinking</span></div><div><strong>0 → 1</strong><span>product building</span></div></div>
         </div>
-        <div className="hero-art" aria-hidden="true"><div className="orbit orbit-a" /><div className="orbit orbit-b" /><div className="orbit orbit-c" /><div className="hero-planet"><span>OE</span></div><div className="satellite satellite-one" /><div className="satellite satellite-two" /><div className="orbit-label label-top">BUILD / SHIP / LEARN</div><div className="orbit-label label-bottom">EST. 2024</div></div>
+        <figure className="hero-art engineering-orbit">
+          <div className="orbit orbit-a" aria-hidden="true" />
+          <div className="orbit orbit-b" aria-hidden="true" />
+          <div className="orbit orbit-c" aria-hidden="true" />
+          <div className="hero-planet" aria-hidden="true"><div className="planet-latitude" /><div className="planet-longitude" /></div>
+          <svg className="orbital-type" viewBox="0 0 500 500" aria-hidden="true">
+            <defs>
+              <path id="fullstack-arc" d="M 75,250 A 175,175 0 0,1 425,250" />
+              <path id="cloud-arc" d="M 75,250 A 175,175 0 0,0 425,250" />
+              <linearGradient id="orbital-trail"><stop stopColor="#a99bff" stopOpacity="0" /><stop offset="1" stopColor="#a99bff" /></linearGradient>
+            </defs>
+            <circle className="type-orbit-track" cx="250" cy="250" r="175" />
+            <g className="orbit-type-top"><text textAnchor="middle"><textPath href="#fullstack-arc" startOffset="50%">FULL-STACK</textPath></text></g>
+            <g className="orbit-type-bottom"><text textAnchor="middle" dy="22"><textPath href="#cloud-arc" startOffset="50%">CLOUD ENGINEERING</textPath></text></g>
+            <g className="orbit-comet"><path d="M 75,250 A 175,175 0 0,1 126,126" fill="none" stroke="url(#orbital-trail)" strokeWidth="2" /><circle cx="126" cy="126" r="3" fill="#c7bcff" /></g>
+            <g className="orbit-comet orbit-comet-secondary"><circle cx="425" cy="250" r="2.5" fill="#70d5dc" /></g>
+          </svg>
+          <figcaption className="orbit-caption"><span aria-hidden="true">Currently orbiting between…</span><span className="sr-only">Currently orbiting between full-stack and cloud engineering.</span></figcaption>
+        </figure>
       </div>
       <a href="#about" className="scroll-cue"><span>SCROLL TO EXPLORE</span><ArrowDown size={16} /></a>
     </section>
